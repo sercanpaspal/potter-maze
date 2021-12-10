@@ -1,11 +1,15 @@
+import { connect } from "react-redux";
 import { io } from "socket.io-client";
+import Scene from "./scenes";
 
 export const socket = io(process.env.REACT_APP_SOCKET_URI, {
   transports: ["websocket"],
 });
 
-const App = () => {
-  return <div className="App">hello</div>;
+const App = ({ scene }) => {
+  return <Scene currentScene={scene} />;
 };
 
-export default App;
+const mapStateToProps = ({ scene }) => ({ scene });
+
+export default connect(mapStateToProps)(App);
