@@ -42,7 +42,7 @@ io.on("connection", (socket) => {
 
   socket.on("roomJoin", (roomId, nickname, figure) => {
     const room = ROOMS[roomId];
-    if (room) {
+    if (room && room.length <= MAX_USER) {
       room.append(makePlayer(nickname, figure));
       socket.emit("roomState", room);
     } else {
@@ -64,9 +64,9 @@ io.on("connection", (socket) => {
     }
   };
 
-  client.on("leave", disconnect);
+  socket.on("leave", disconnect);
 
-  client.on("disconnect", disconnect);
+  socket.on("disconnect", disconnect);
 });
 
 console.log("Server started!");
