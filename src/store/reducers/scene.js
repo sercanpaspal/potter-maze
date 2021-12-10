@@ -1,7 +1,9 @@
 import { Scenes } from "../../constants/enums";
 import { SET_SCENE } from "../actionTypes";
 
-const scene = (state = Scenes.MENU, action) => {
+const initialState = Scenes.MENU;
+
+const scene = (state = initialState, action) => {
   switch (action.type) {
     case SET_SCENE:
       return action.payload;
