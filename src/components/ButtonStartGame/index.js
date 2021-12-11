@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import { socket } from "../../App";
+import Button from "../Button";
 
 const ButtonStartGame = ({ roomId }) => {
   return (
-    <button onClick={() => socket.emit("roomStart", roomId)}>start game</button>
+    <Button onClick={() => socket.emit("roomStart", roomId)}>start game</Button>
   );
 };
 

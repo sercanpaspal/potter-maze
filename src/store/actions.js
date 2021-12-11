@@ -5,6 +5,7 @@ import {
   SET_ROOM_ID,
   SET_ROOM_USERS,
   SET_SCENE,
+  SET_THEME,
   SET_USER,
   SET_USER_ID,
 } from "./actionTypes";
@@ -28,6 +29,12 @@ export const setSceneNotExistsRoom = () =>
   changeScene(Scenes.NOT_EXISTS_ROOM)(store.dispatch);
 
 export const setSceneGame = () => changeScene(Scenes.GAME)(store.dispatch);
+
+export const changeTheme = (theme) => (dispatch) =>
+  dispatch({
+    type: SET_THEME,
+    payload: theme,
+  });
 
 export const changeScene = (scene) => (dispatch) =>
   dispatch({

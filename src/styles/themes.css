@@ -1,0 +1,41 @@
+.gryffindor {
+  --primary-100: #D10B11;
+  --primary-200: #BE0A0F;
+  --primary-300: #AD090E;
+  --primary-400: #9D080D;
+  --primary-500: #8F070C;
+  --primary-600: #81060B;
+  --primary-700: #74050A;
+  --primary-800: #680409;
+  --primary-900: #5E0408;
+  --secondary-100: #FEF5D8;
+  --secondary-200: #FCEBAF;
+  --secondary-300: #FAE28A;
+  --secondary-400: #F9D968;
+  --secondary-500: #F8D149;
+  --secondary-600: #F7C92A;
+  --secondary-700: #F6C20E;
+  --secondary-800: #E2B108;
+  --secondary-900: #CB9F07;
+}
+
+.slytherin {
+  --primary-100: #1B7714;
+  --primary-200: #196C12;
+  --primary-300: #176210;
+  --primary-400: #15590F;
+  --primary-500: #13510E;
+  --primary-600: #11490D;
+  --primary-700: #0F420C;
+  --primary-800: #0D3B0B;
+  --primary-900: #0C350A;
+  --secondary-100: #B5B5B5;
+  --secondary-200: #A5A5A5;
+  --secondary-300: #969696;
+  --secondary-400: #888888;
+  --secondary-500: #7C7C7C;
+  --secondary-600: #707070;
+  --secondary-700: #656565;
+  --secondary-800: #5B5B5B;
+  --secondary-900: #525252;
+}

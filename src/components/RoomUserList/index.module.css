@@ -1,0 +1,25 @@
+.roomUserList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.roomUserList table {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.roomUserList table th {
+  font-size: 14px;
+  border-bottom: 2px solid var(--secondary-500);
+}
+
+.roomUserList table th, .roomUserList table td {
+  padding: 4px 8px;
+}
+
+.roomUserList table tr:nth-child(even) {
+  background-color: var(--primary-600);
+}

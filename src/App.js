@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { io } from "socket.io-client";
+import ThemeList from "./components/ThemeList";
 import Scene from "./scenes";
 import {
   setUserId,
@@ -35,7 +36,12 @@ const App = ({ scene, theme }) => {
     document.body.classList = theme;
   }, [theme]);
 
-  return <Scene currentScene={scene} />;
+  return (
+    <div>
+      <ThemeList />
+      <Scene currentScene={scene} />
+    </div>
+  );
 };
 
 const mapStateToProps = ({ scene, theme }) => ({ scene, theme });

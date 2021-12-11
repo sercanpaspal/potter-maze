@@ -8,7 +8,7 @@ const CreateRoomScene = ({ roomId }) => {
 
   return roomId ? (
     <div>
-      <h1>Share room url</h1>
+      <h1>oda bağlantısını paylaş</h1>
       <a target="_blank" rel="noreferrer" href={roomUrl}>
         {roomUrl}
       </a>

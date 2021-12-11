@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { setUser } from "../../store/actions";
+import styles from "./index.module.css";
 
 const UserForm = ({ user, setUser, handleSubmit, children }) => {
   const onSubmit = (e) => {
@@ -14,23 +15,32 @@ const UserForm = ({ user, setUser, handleSubmit, children }) => {
   return (
     <form onSubmit={onSubmit}>
       <div>
-        <label>User Name</label>
-        <input name="name" type="text" defaultValue={user.name} required />
+        <input
+          className={styles.input}
+          placeholder="Username"
+          name="name"
+          type="text"
+          defaultValue={user.name}
+          required
+        />
       </div>
       <div>
-        <label>Figure</label>
-        {["glass", "hat", "wand", "howler"].map((figure, _i) => (
-          <div key={`figure-input-${_i}`}>
-            <input
-              name="figure"
-              type="radio"
-              value={figure}
-              defaultChecked={figure === user.figure}
-              required
-            />{" "}
-            {figure}
-          </div>
-        ))}
+        <ul className={styles.figure}>
+          {["glass", "hat", "wand", "howler"].map((figure, _i) => (
+            <li key={`figure-input-${_i}`}>
+              <label>
+                <input
+                  name="figure"
+                  type="radio"
+                  value={figure}
+                  defaultChecked={figure === user.figure}
+                  required
+                />
+                {figure}
+              </label>
+            </li>
+          ))}
+        </ul>
       </div>
       {children}
     </form>
