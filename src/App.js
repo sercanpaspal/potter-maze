@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { io } from "socket.io-client";
 import Scene from "./scenes";
@@ -29,10 +30,14 @@ socket.on("roomStarted", setSceneGame);
 
 socket.on("gameState", setGameState);
 
-const App = ({ scene }) => {
+const App = ({ scene, theme }) => {
+  useEffect(() => {
+    document.body.classList = theme;
+  }, [theme]);
+
   return <Scene currentScene={scene} />;
 };
 
-const mapStateToProps = ({ scene }) => ({ scene });
+const mapStateToProps = ({ scene, theme }) => ({ scene, theme });
 
 export default connect(mapStateToProps)(App);

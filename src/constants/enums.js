@@ -7,3 +7,8 @@ export const Scenes = {
   NOT_EXISTS_ROOM: "NOT_EXISTS_ROOM",
   GAME: "GAME",
 };
+
+export const Themes = {
+  GRYFFINDOR: "gryffindor",
+  SLYTHERIN: "slytherin",
+};

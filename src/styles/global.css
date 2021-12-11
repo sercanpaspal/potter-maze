@@ -1,0 +1,61 @@
+@import-normalize;
+
+@import url('https://fonts.googleapis.com/css2?family=Kings&display=swap');
+
+.gryffindor {
+    --primary-100: #D10B11;
+    --primary-200: #BE0A0F;
+    --primary-300: #AD090E;
+    --primary-400: #9D080D;
+    --primary-500: #8F070C;
+    --primary-600: #81060B;
+    --primary-700: #74050A;
+    --primary-800: #680409;
+    --primary-900: #5E0408;
+    --secondary-100: #FEF5D8;
+    --secondary-200: #FCEBAF;
+    --secondary-300: #FAE28A;
+    --secondary-400: #F9D968;
+    --secondary-500: #F8D149;
+    --secondary-600: #F7C92A;
+    --secondary-700: #F6C20E;
+    --secondary-800: #E2B108;
+    --secondary-900: #CB9F07;
+    --black: #373737;
+    --white: #EDEDED;
+    --link: #2C5585;
+    --danger: #852C2C;
+    --square-size: 50px;
+}
+
+html, body {
+  font-family: 'Kings', cursive;
+  font-size: 18px;
+  background-color: var(--primary-500);
+  color: var(--secondary-500);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 72px;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

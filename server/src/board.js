@@ -19,4 +19,8 @@ module.exports = [
     type: "card",
     coord: [5, 5],
   },
+  {
+    type: "card",
+    coord: [5, 4],
+  },
 ];
