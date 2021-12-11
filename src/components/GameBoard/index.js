@@ -1,12 +1,10 @@
 import _ from "lodash";
 import { connect } from "react-redux";
+import GameBoardCol from "../GameBoardCol";
 import GameButtonDice from "../GameButtonDice";
 
 const GameBoard = ({ game, user }) => {
-  const { board, turnUser } = game;
-
-  const findBoardPieceType = (x, y) =>
-    board.find((p) => p.coord[0] === x && p.coord[1] === y)?.type;
+  const { turnUser } = game;
 
   const isYourTurn = turnUser.id === user.id;
 
@@ -20,10 +18,7 @@ const GameBoard = ({ game, user }) => {
           {_.range(8).map((row) => (
             <tr key={`row-${row}`}>
               {_.range(8).map((col) => (
-                <td key={`col-${row}-${col}`}>
-                  {row} - {col}
-                  {findBoardPieceType(row, col)}
-                </td>
+                <GameBoardCol row={row} col={col} key={`col-${row}-${col}`} />
               ))}
             </tr>
           ))}

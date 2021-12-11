@@ -15,4 +15,8 @@ module.exports = [
     type: "road",
     coord: [5, 6],
   },
+  {
+    type: "card",
+    coord: [5, 5],
+  },
 ];
