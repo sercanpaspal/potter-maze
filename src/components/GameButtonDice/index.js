@@ -1,7 +1,9 @@
+import { connect } from "react-redux";
 import { socket } from "../../App";
 
-const GameButtonDice = () => {
-  return <button onClick={() => socket.emit("gameDice")}>dice</button>;
-};
+const GameButtonDice = ({ dice }) =>
+  !dice && <button onClick={() => socket.emit("gameDice")}>dice</button>;
 
-export default GameButtonDice;
+const mapStateToProps = ({ game: { dice } }) => ({ dice });
+
+export default connect(mapStateToProps)(GameButtonDice);

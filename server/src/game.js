@@ -8,6 +8,7 @@ const Game = (room) => {
     board,
     users,
     turnUser: users[0],
+    dice: null,
   };
 
   const emitAll = (event, ...args) =>
@@ -19,9 +20,11 @@ const Game = (room) => {
 
   room.forEach(({ socket, ...user }) => {
     socket.on("gameDice", () => {
-      console.log("hello");
-      const dice = _.random(1, 6);
-      console.log(dice);
+      if (!state.dice) {
+        state.dice = _.random(1, 6);
+
+        emitAll("gameState", { dice: state.dice });
+      }
     });
   });
 };

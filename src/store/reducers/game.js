@@ -4,6 +4,7 @@ const initialState = {
   board: [],
   users: [],
   turnUser: null,
+  dice: null,
 };
 
 const game = (state = initialState, action) => {
