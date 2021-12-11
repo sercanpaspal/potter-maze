@@ -1,8 +1,8 @@
 import { SET_USER } from "../actionTypes";
 
 const initialState = {
-  name: "",
-  figure: null,
+  name: "sercan",
+  figure: "howler",
 };
 
 const user = (state = initialState, action) => {

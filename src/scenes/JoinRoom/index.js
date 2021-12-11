@@ -3,17 +3,17 @@ import UserForm from "../../components/UserForm";
 import { Scenes } from "../../constants/enums";
 import { changeScene } from "../../store/actions";
 
-const MenuScene = ({ changeScene }) => {
+const JoinRoomScene = ({ changeScene }) => {
   return (
     <div>
-      <UserForm handleSubmit={() => changeScene(Scenes.CREATE_ROOM)}>
-        <button type="submit">create room</button>
+      <h1>Join room</h1>
+      <UserForm handleSubmit={() => changeScene(Scenes.WAIT_ROOM)}>
+        <button type="submit">Join</button>
       </UserForm>
-      Hello this is menu scene{" "}
     </div>
   );
 };
 
 const mapDispatchToProps = { changeScene };
 
-export default connect(null, mapDispatchToProps)(MenuScene);
+export default connect(null, mapDispatchToProps)(JoinRoomScene);
