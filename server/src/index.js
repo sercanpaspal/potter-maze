@@ -3,6 +3,7 @@ const http = require("http");
 const Server = require("socket.io").Server;
 const dotenv = require("dotenv");
 const uuid = require("uuid");
+const Game = require("./game");
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ const io = new Server(httpServer);
 const ROOMS = [];
 const MAX_USER = 4;
 const MIN_USER = 1;
+
 io.on("connection", (socket) => {
   const userId = uuid.v4();
 
@@ -23,7 +25,10 @@ io.on("connection", (socket) => {
     name,
     socket,
     figure,
+    position: 0,
   });
+
+  socket.emit("id", userId);
 
   const emitAllRoom = (roomId, event, ...args) => {
     ROOMS[roomId].forEach((user) => {
@@ -87,6 +92,8 @@ io.on("connection", (socket) => {
     if (roomId === userId && room.length >= MIN_USER) {
       console.log("GAME START");
       sendRoomStarted(roomId);
+
+      Game(room);
     }
   });
 

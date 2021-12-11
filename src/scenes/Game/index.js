@@ -1,5 +1,11 @@
+import GameBoard from "../../components/GameBoard";
+
 const GameScene = () => {
-  return <div>this is game scene</div>;
+  return (
+    <div>
+      <GameBoard />
+    </div>
+  );
 };
 
 export default GameScene;

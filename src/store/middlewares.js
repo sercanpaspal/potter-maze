@@ -6,6 +6,7 @@ import { socket } from "../App";
 
 const sceneMiddleware = (store) => (next) => (action) => {
   const { user, room } = store.getState();
+  console.log(action);
 
   if (action.type === SET_SCENE) {
     switch (action.payload) {
