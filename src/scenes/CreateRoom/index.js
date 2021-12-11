@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import RoomUserList from "../../components/RoomUserList";
+import ButtonStartGame from "../../components/ButtonStartGame";
 import { getRoomUrl } from "../../utils";
 
 const CreateRoomScene = ({ roomId }) => {
@@ -13,6 +14,8 @@ const CreateRoomScene = ({ roomId }) => {
       </a>
 
       <RoomUserList roomId={roomId} host={true} />
+
+      <ButtonStartGame />
     </div>
   ) : (
     "Room creating.."

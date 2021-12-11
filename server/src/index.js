@@ -49,8 +49,8 @@ io.on("connection", (socket) => {
   socket.on("roomRemove", (roomId) => delete ROOMS[roomId]);
 
   socket.on(
-    "roomCheck",
-    (roomId) => !ROOMS[roomId] && socket.emit("roomNotExist")
+    "roomExistsCheck",
+    (roomId) => !ROOMS[roomId] && socket.emit("roomNotExists")
   );
 
   socket.on("roomJoin", (roomId, user) => {
@@ -59,7 +59,7 @@ io.on("connection", (socket) => {
       ROOMS[roomId].push(makeUser(user.name, user.figure));
       sendRoomUsers(roomId);
     } else {
-      socket.emit("roomNotExist");
+      socket.emit("roomNotExists");
     }
   });
 
