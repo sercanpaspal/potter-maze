@@ -16,21 +16,34 @@ const ROOMS = [];
 const MAX_USER = 4;
 const MIN_USER = 2;
 io.on("connection", (socket) => {
-  const playerId = uuid.v4();
+  const userId = uuid.v4();
 
-  const makePlayer = (nickname, figure) => ({
-    id: playerId,
-    nickname,
+  const makeUser = (name, figure) => ({
+    id: userId,
+    name,
     socket,
     figure,
   });
 
-  socket.on("roomCreate", (nickname, figure) => {
-    console.log(ROOMS, playerId);
-    ROOMS[playerId] = [makePlayer(nickname, figure)];
+  const emitAllRoom = (roomId, event, ...args) => {
+    ROOMS[roomId].forEach((user) => {
+      user.socket.emit(event, ...args);
+    });
+  };
 
-    socket.emit("roomCreated", playerId);
-    socket.emit("roomState", ROOMS[playerId]);
+  const sendRoomUsers = (roomId) =>
+    emitAllRoom(
+      roomId,
+      "roomUserState",
+      ROOMS[roomId].map(({ socket, ...user }) => user)
+    );
+
+  const sendRoomNotExists = (roomId) => emitAllRoom(roomId, "roomNotExists");
+
+  socket.on("roomCreate", (user) => {
+    ROOMS[userId] = [makeUser(user.name, user.figure)];
+    socket.emit("roomCreated", userId);
+    sendRoomUsers(userId);
   });
 
   socket.on("roomRemove", (roomId) => delete ROOMS[roomId]);
@@ -40,28 +53,49 @@ io.on("connection", (socket) => {
     (roomId) => !ROOMS[roomId] && socket.emit("roomNotExist")
   );
 
-  socket.on("roomJoin", (roomId, nickname, figure) => {
+  socket.on("roomJoin", (roomId, user) => {
     const room = ROOMS[roomId];
     if (room && room.length <= MAX_USER) {
-      room.append(makePlayer(nickname, figure));
-      socket.emit("roomState", room);
+      ROOMS[roomId].push(makeUser(user.name, user.figure));
+      sendRoomUsers(roomId);
     } else {
       socket.emit("roomNotExist");
+    }
+  });
+
+  socket.on("roomKick", (roomId, kickedUserId) => {
+    const room = ROOMS[roomId];
+    if (room) {
+      const user = room.find((u) => u.id === kickedUserId);
+      if (user) {
+        user.socket.emit("roomKicked");
+        ROOMS[roomId] = room.filter((u) => u.id !== kickedUserId);
+        sendRoomUsers(roomId);
+      }
     }
   });
 
   socket.on("roomStart", (roomId) => {
     const room = ROOMS[roomId];
 
-    if (roomId === playerId && room.length >= MIN_USER) {
+    if (roomId === userId && room.length >= MIN_USER) {
       console.log("GAME START");
+      socket.emit("roomStarted");
     }
   });
 
   const disconnect = () => {
-    for (const roomId in Object.keys(ROOMS)) {
-      ROOMS[roomId] = ROOMS[roomId].filter((p) => p.id !== playerId);
-    }
+    Object.keys(ROOMS).forEach((roomId) => {
+      ROOMS[roomId] = ROOMS[roomId].filter((p) => p.id !== userId);
+      if (roomId === userId) {
+        sendRoomNotExists(roomId);
+      } else {
+        sendRoomUsers(roomId);
+      }
+      if (ROOMS[roomId].length === 0) {
+        delete ROOMS[roomId];
+      }
+    });
   };
 
   socket.on("leave", disconnect);
