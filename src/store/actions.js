@@ -19,6 +19,8 @@ export const setSceneKickedRoom = () =>
 export const setSceneNotExistsRoom = () =>
   changeScene(Scenes.NOT_EXISTS_ROOM)(store.dispatch);
 
+export const setSceneGame = () => changeScene(Scenes.GAME)(store.dispatch);
+
 export const changeScene = (scene) => (dispatch) =>
   dispatch({
     type: SET_SCENE,

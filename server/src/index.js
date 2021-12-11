@@ -14,7 +14,7 @@ const io = new Server(httpServer);
 
 const ROOMS = [];
 const MAX_USER = 4;
-const MIN_USER = 2;
+const MIN_USER = 1;
 io.on("connection", (socket) => {
   const userId = uuid.v4();
 
@@ -35,6 +35,13 @@ io.on("connection", (socket) => {
     emitAllRoom(
       roomId,
       "roomUserState",
+      ROOMS[roomId].map(({ socket, ...user }) => user)
+    );
+
+  const sendRoomStarted = (roomId) =>
+    emitAllRoom(
+      roomId,
+      "roomStarted",
       ROOMS[roomId].map(({ socket, ...user }) => user)
     );
 
@@ -77,10 +84,9 @@ io.on("connection", (socket) => {
 
   socket.on("roomStart", (roomId) => {
     const room = ROOMS[roomId];
-
     if (roomId === userId && room.length >= MIN_USER) {
       console.log("GAME START");
-      socket.emit("roomStarted");
+      sendRoomStarted(roomId);
     }
   });
 
@@ -98,7 +104,7 @@ io.on("connection", (socket) => {
     });
   };
 
-  socket.on("leave", disconnect);
+  socket.on("roomLeave", disconnect);
 
   socket.on("disconnect", disconnect);
 });

@@ -1,5 +1,5 @@
-const GameScreen = () => {
-  return <div>this is game screen</div>;
+const GameScene = () => {
+  return <div>this is game scene</div>;
 };
 
-export default GameScreen;
+export default GameScene;

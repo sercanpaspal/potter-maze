@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
-import { Scenes } from "../../constants/enums";
-import { changeScene } from "../../store/actions";
+import { socket } from "../../App";
 
-const ButtonStartGame = ({ changeScene }) => {
-  return <button onClick={() => changeScene(Scenes.GAME)}>start game</button>;
+const ButtonStartGame = ({ roomId }) => {
+  return (
+    <button onClick={() => socket.emit("roomStart", roomId)}>start game</button>
+  );
 };
 
-const mapDispatchToProps = { changeScene };
+const mapStateToProps = ({ room }) => ({ roomId: room.id });
 
-export default connect(null, mapDispatchToProps)(ButtonStartGame);
+export default connect(mapStateToProps)(ButtonStartGame);

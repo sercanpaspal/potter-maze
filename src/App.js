@@ -4,6 +4,7 @@ import Scene from "./scenes";
 import {
   setRoomId,
   setRoomUsers,
+  setSceneGame,
   setSceneKickedRoom,
   setSceneNotExistsRoom,
 } from "./store/actions";
@@ -19,6 +20,8 @@ socket.on("roomUserState", setRoomUsers);
 socket.on("roomNotExists", setSceneNotExistsRoom);
 
 socket.on("roomKicked", setSceneKickedRoom);
+
+socket.on("roomStarted", setSceneGame);
 
 const App = ({ scene }) => {
   return <Scene currentScene={scene} />;
