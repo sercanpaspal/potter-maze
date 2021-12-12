@@ -52,7 +52,7 @@ const Game = (room) => {
   };
 
   const dice = () => {
-    state.dice = state.turnUser.felix ? _.random(4, 6) : _.random(1, 6);
+    state.dice = state.turnUser.felix ? _.random(4, 6) : 4;
     state.turnUser.felix = false;
 
     emitAll("gameState", { dice: state.dice });
@@ -146,7 +146,9 @@ const Game = (room) => {
               } else {
                 state.turnUser.waitTurn = state.card.waitTurn;
                 state.turnUser.position += state.card.position;
-                isMoved = true;
+                if (state.card.position > 0) {
+                  isMoved = true;
+                }
               }
             default:
               break;
