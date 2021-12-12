@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Potter Maze",
+  "name": "Potter Maze - A Turn Based Harry Potter Game",
   "icons": [
     {
       "src": "favicon.ico",
