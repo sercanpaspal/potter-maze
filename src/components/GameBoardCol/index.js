@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import styles from "./index.module.css";
 import cn from "classnames";
+import GameBoardColUsers from "../GameBoardColUsers";
 
 const GameBoardCol = ({ row, col, game }) => {
   const { board, users } = game;
@@ -14,18 +15,14 @@ const GameBoardCol = ({ row, col, game }) => {
   const colUsers = users.filter((u) => u.position === findIndex);
 
   return (
-    <div
-      className={cn([
-        styles.gameBoardCol,
-        { [styles.path]: !!pieceType },
-        styles[pieceType],
-      ])}
-    >
-      <ul>
-        {colUsers.map((user) => (
-          <li>{user.figure}</li>
-        ))}
-      </ul>
+    <div className={cn([styles.gameBoardCol, { [styles.path]: !!pieceType }])}>
+      {findIndex > -1 && (
+        <div className={styles.colNumber}>{findIndex + 1}</div>
+      )}
+      {pieceType !== "road" && (
+        <div className={cn([styles.special, styles[pieceType]])}></div>
+      )}
+      <GameBoardColUsers users={colUsers} />
     </div>
   );
 };

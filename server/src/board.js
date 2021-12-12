@@ -8,7 +8,7 @@ module.exports = [
     coord: [7, 6],
   },
   {
-    type: "road",
+    type: "treasure",
     coord: [6, 6],
   },
   {
@@ -20,7 +20,7 @@ module.exports = [
     coord: [5, 5],
   },
   {
-    type: "card",
+    type: "road",
     coord: [5, 4],
   },
   {

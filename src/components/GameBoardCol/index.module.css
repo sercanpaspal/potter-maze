@@ -1,8 +1,42 @@
 .gameBoardCol {
   width: var(--square-size);
   height: var(--square-size);
+  position: relative;
 }
 
 .gameBoardCol.path {
   background-color: var(--secondary-100);
+}
+
+.special {
+  background-size: cover;
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  z-index: 1.1;
+}
+
+.special.card {
+  background-image: url('../../assets/card.png');
+}
+
+.special.treasure {
+  background-image: url('../../assets/treasure.png');
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+.colNumber {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.1;
+  font-size: 32px;
 }
