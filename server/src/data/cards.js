@@ -22,7 +22,7 @@ module.exports = [
     waitTurn: 0,
     position: -1,
     title: "Murloc",
-    type: "position",
+    type: "monster",
     description:
       "çalıların arasında üzerine bir yaratık fırladı ve seni 1 adım geri götürdü",
   },

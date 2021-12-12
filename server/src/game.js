@@ -127,18 +127,26 @@ const Game = (room) => {
 
           emitInfo("card", state.card);
 
+          let isMoved = false;
+
           switch (state.card.type) {
             case "move":
               state.turnUser.position += state.card.position;
+              isMoved = true;
               break;
             case "monster":
               if (state.turnUser.protections.length > 0) {
                 setTimeout(() => {
                   const protection = state.turnUser.protections.pop();
-                  emitInfo("text", `${protection.title} kullanıldı!`);
+                  emitInfo(
+                    "text",
+                    `${state.turnUser.name}: ${protection.title} kullanıldı!`
+                  );
                 }, 3000);
               } else {
                 state.turnUser.waitTurn = state.card.waitTurn;
+                state.turnUser.position += state.card.position;
+                isMoved = true;
               }
             default:
               break;
@@ -149,7 +157,7 @@ const Game = (room) => {
           setTimeout(() => {
             emitAll("gameState", { users: state.users });
 
-            if (state.card.position !== 0) {
+            if (isMoved) {
               setTimeout(checkBoard, 1000);
             } else {
               setTimeout(nextTurn, 1000);
