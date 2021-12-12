@@ -9,6 +9,24 @@ module.exports = [
       "hava birden buz kesti ve gökyüzünde ruh emiciler belirdi. Saklanmak için 2 adım geri git",
   },
   {
+    key: "dragon",
+    waitTurn: 2,
+    position: 0,
+    title: "dragon",
+    type: "monster",
+    description:
+      "gök yüzünde birden bire ejderha belirdi ve alevleriyle seni yaraladı. İyileşmek uzun sürecek 2 tur bekle",
+  },
+  {
+    key: "murloc",
+    waitTurn: 0,
+    position: -1,
+    title: "Murloc",
+    type: "position",
+    description:
+      "çalıların arasında üzerine bir yaratık fırladı ve seni 1 adım geri götürdü",
+  },
+  {
     key: "broom",
     waitTurn: 0,
     position: 2,
