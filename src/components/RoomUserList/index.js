@@ -25,6 +25,7 @@ const RoomUserList = ({ users, roomId, host = false }) => (
                   <Button
                     small={true}
                     onClick={() => socket.emit("roomKick", roomId, user.id)}
+                    style={{ margin: 0 }}
                   >
                     kick
                   </Button>
