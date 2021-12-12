@@ -10,8 +10,24 @@ export const Scenes = {
 };
 
 export const Themes = {
-  GRYFFINDOR: "gryffindor",
-  SLYTHERIN: "slytherin",
-  HUFFLEPUFF: "hufflepuff",
-  RAVENCLAW: "ravenclaw",
+  GRYFFINDOR: {
+    key: "gryffindor",
+    primaryColor: "#8F070C",
+    secondaryColor: "#F8D149",
+  },
+  SLYTHERIN: {
+    key: "slytherin",
+    primaryColor: "#13510E",
+    secondaryColor: "#B5B5B5",
+  },
+  HUFFLEPUFF: {
+    key: "hufflepuff",
+    primaryColor: "#E8AF2D",
+    secondaryColor: "#3F3F3F",
+  },
+  RAVENCLAW: {
+    key: "ravenclaw",
+    primaryColor: "#0A4883",
+    secondaryColor: "#B5B5B5",
+  },
 };

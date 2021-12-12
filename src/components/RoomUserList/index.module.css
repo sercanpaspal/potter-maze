@@ -6,13 +6,18 @@
   margin-top: 20px;
 }
 
+.roomUserList h2 {
+  font-size: 32px;
+}
+
 .roomUserList table {
   margin-bottom: 20px;
+  font-size: 24px;
   text-align: left;
 }
 
 .roomUserList table th {
-  font-size: 14px;
+  font-size: 18px;
   border-bottom: 2px solid var(--primary-500);
 }
 

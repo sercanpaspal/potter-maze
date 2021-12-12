@@ -7,12 +7,15 @@ import GameTreasure from "../GameTreasure";
 
 const GameOverlayInfo = ({ infos }) => {
   const [opened, setOpened] = useState(false);
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState(true);
 
   useEffect(() => {
-    setHide(false);
     setOpened(false);
-    const timeout = setTimeout(() => setOpened(true), 100);
+    setHide(false);
+  }, [infos]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setOpened(true), 50);
 
     return () => clearTimeout(timeout);
   }, [infos]);
@@ -21,15 +24,14 @@ const GameOverlayInfo = ({ infos }) => {
     const timeout = setTimeout(() => setOpened(false), 3000);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [infos]);
 
   useEffect(() => {
     if (!opened) {
       const timeout = setTimeout(() => setHide(true), 800);
-
       return () => clearTimeout(timeout);
     }
-  }, [opened]);
+  }, [infos, opened]);
 
   if (infos.length === 0) return "";
 

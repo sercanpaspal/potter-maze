@@ -1,0 +1,10 @@
+.joinRoom {
+  display: flex;
+  flex-direction: column;
+}
+
+.joinRoom button {
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 20px;
+}

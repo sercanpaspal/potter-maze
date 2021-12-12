@@ -9,7 +9,7 @@ const MenuScene = ({ changeScene }) => {
     <div>
       <h1>potter maze</h1>
       <UserForm handleSubmit={() => changeScene(Scenes.CREATE_ROOM)}>
-        <Button type="submit">create room</Button>
+        <Button type="submit">oda oluştur</Button>
       </UserForm>
     </div>
   );

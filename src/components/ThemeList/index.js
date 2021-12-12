@@ -11,9 +11,12 @@ const ThemeList = ({ theme, changeTheme }) => {
 
   return (
     <ul className={styles.themeList}>
-      {Object.values(Themes).map((theme) => (
-        <li key={theme}>
-          <button onClick={() => changeTheme(theme)}>{theme}</button>
+      {Object.values(Themes).map(({ key, primaryColor, secondaryColor }) => (
+        <li key={key}>
+          <button onClick={() => changeTheme(key)}>
+            <div style={{ background: primaryColor }}></div>
+            <div style={{ background: secondaryColor }}></div>
+          </button>
         </li>
       ))}
     </ul>

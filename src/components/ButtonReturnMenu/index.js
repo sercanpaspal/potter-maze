@@ -6,7 +6,7 @@ import Button from "../Button";
 const ButtonReturnMenu = ({ changeScene, ...props }) => {
   return (
     <Button onClick={() => changeScene(Scenes.MENU)} {...props}>
-      return to the menu
+      menüye dön
     </Button>
   );
 };

@@ -4,7 +4,9 @@ import Button from "../Button";
 
 const ButtonStartGame = ({ roomId }) => {
   return (
-    <Button onClick={() => socket.emit("roomStart", roomId)}>start game</Button>
+    <Button onClick={() => socket.emit("roomStart", roomId)}>
+      oyunu başlat
+    </Button>
   );
 };
 

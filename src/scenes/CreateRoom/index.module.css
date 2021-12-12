@@ -1,0 +1,10 @@
+.createRoom {
+  display: flex;
+  flex-direction: column;
+}
+
+.createRoom button {
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 20px;
+}
