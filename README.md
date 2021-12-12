@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Potter Maze
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Arkadaşlarında önce ateş kadehine ulaş. Labirentin içinde maceraya hazır ol!
 
-## Available Scripts
+## Başlangıç
 
-In the project directory, you can run:
+- Kullanıcı adını girip figürünü seçtikten sonra odanı oluştur.
 
-### `npm start`
+- Odanı oluşturduktan sonra oluşturulan davet bağlantısı ile arkadaşlarını davet et ve herkes hazır olduğunda oyunu başlat!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Oyun en fazla 4 kişi, en az da 2 kişi (test edilebilmesi için şimdilik tek kişi) ile oynanır.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Herkes aynı noktadan oyuna başlar.
 
-### `npm test`
+- Oyuna başlayacak kişi, odadaki kişiler arasında rastgele seçilir.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Rehber
 
-### `npm run build`
+- Ekranın üzerinde "senin sıran" yazdığında oynama sırası sana gelmiş demektir.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Sıra sana geldiğinde, ekranın sol alt kısmından "zar at" butonuna tıklayarak rastgele bir adet zar atılır.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Zar sayısı kadar harita üzerindeki yolda ilerlenir.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Eğer boş bir yola gelirseniz, sıra diğer kullanıcıya geçer.
 
-### `npm run eject`
+- Eğer kart üzerine gelirseniz, rastgele bir kart çekilir ve kartta yazan aksiyon alındıktan sonra destenin sonuna eklenir.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Eğer hazine üzerine gelirseniz, size avantaj sağlayan rastgele bir eşya kazanırsınız.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Kartlar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Ruh Emici**
+  - Hava birden buz kesti ve gökyüzünde ruh emiciler belirdi. Saklanmak için 2 adım geri git.
+- **Süpürge**
+  - Sarmaşıklara saplanmış bir süpürge, saplandığı yerden çıkar ve 2 adım ileri git.
+- **Troll**
+  - O sırada yoldan geçen bir troll tarafından ezildin 1 tur bekle.
+- **Murloc**
+  - Çalıların arasında üzerine bir yaratık fırladı ve seni 1 adım geri götürdü.
+- **Ejderha**
+  - Gök yüzünde birden bire ejderha belirdi ve alevleriyle seni yaraladı. İyileşmek uzun sürecek 2 tur bekle.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Hazineler
 
-## Learn More
+- Mürver Asa
+  - Bir yaratıkla karşılaştığında yok etmeni sağlar.
+- Şans İksiri
+  - Bu iksiri içen kişi sonraki elde en az 4 atar.
+- Görünmezlik Pelerini
+  - Bir yaratıkla karşılaştığında görünmeden geçmeni sağlar.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Kurulum
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Client
 
-### Code Splitting
+Bu proje `create react app` ile oluşturuldu.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`.env.development.local.example` dosyasının içersinde socket server portu yer alıyor. `.env.development.local` olarak kopyalayıp varsayılan portu bırakabilirsiniz.
 
-### Analyzing the Bundle Size
+#### `npm install`
+Client tarafında paketleri kurar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### `npm start`
 
-### Making a Progressive Web App
+3000 portunda projeyi başlatır.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### `npm run build`
 
-### Advanced Configuration
+Projeyi derleyip `build` klasörüne bir çıktı oluşturur.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Server
+Server projesi, `server` klasörü içersinde bulunur.
 
-### Deployment
+#### `npm install`
+Paketleri kurar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### `npm start`
+`.env` dosyasında port belirtilmediyse `3001` portunda uygulamayı başlatır.
 
-### `npm run build` fails to minify
+#### `npm run dev`
+`.env` dosyasında port belirtilmediyse `3001` portunda `nodemon` paketi ile uygulamayı başlatır.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## License
+MIT
