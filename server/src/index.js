@@ -26,6 +26,9 @@ io.on("connection", (socket) => {
     socket,
     figure,
     position: 0,
+    waitTurn: 0,
+    felix: false,
+    protections: [],
   });
 
   socket.emit("id", userId);

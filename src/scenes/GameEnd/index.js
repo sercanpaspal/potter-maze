@@ -12,7 +12,7 @@ const GameEnd = ({ game, user }) => {
       <h1>
         kazanan{" "}
         <u>
-          {figure} - {name} {id === user.id && "(sen)"}
+          {figure} {name} {id === user.id && "(sen)"}
         </u>
         !
       </h1>

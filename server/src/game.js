@@ -2,18 +2,51 @@ const _ = require("lodash");
 const board = require("./data/board");
 
 const Game = (room) => {
-  let users = room.map(({ socket, ...user }) => user);
+  let users = _.shuffle(room.map(({ socket, ...user }) => user));
   const cards = require("./data/cards");
-  const treasures = _.shuffle(require("./data/treasures"));
+  const treasures = require("./data/treasures");
 
   let state = {
     board,
     users,
     infos: [],
-    turnUser: users[0],
+    turnUser: null,
     dice: null,
     card: null,
     treasure: null,
+  };
+
+  const nextTurn = () => {
+    state.turnUser = { ...state.users.pop() };
+    state.users.unshift(state.turnUser);
+    state.dice = null;
+
+    emitAll("gameState", state);
+  };
+
+  const drawCard = () => {
+    state.card = cards.pop();
+    cards.unshift(state.card);
+  };
+
+  const drawTreasure = () => {
+    state.treasure = treasures.pop();
+    treasures.unshift(state.treasure);
+  };
+
+  const dice = () => {
+    state.dice = state.turnUser.felix ? _.random(4, 6) : 50;
+    state.turnUser.felix = false;
+
+    emitAll("gameState", { dice: state.dice });
+
+    emitInfo("dice", state.dice);
+  };
+
+  const nextPosition = () => {
+    const nextPosition = state.turnUser.position + state.dice;
+    state.turnUser.position =
+      nextPosition > board.length - 1 ? board.length - 1 : nextPosition;
   };
 
   const emitAll = (event, ...args) =>
@@ -26,22 +59,21 @@ const Game = (room) => {
     emitAll("gameState", { infos: state.infos });
   };
 
-  emitAll("gameState", state);
+  const updateUserList = () =>
+    (state.users = state.users.map((u) =>
+      u.id === state.turnUser.id ? state.turnUser : u
+    ));
+
+  nextTurn();
 
   room.forEach(({ socket, ...user }) => {
     socket.on("gameDice", () => {
       if (!state.dice) {
-        state.dice = 4; //_.random(1, 6);
-        const nextPosition = state.turnUser.position + state.dice;
-        state.turnUser.position =
-          nextPosition > board.length - 1 ? board.length - 1 : nextPosition;
-        state.users = state.users.map((u) =>
-          u.id === state.turnUser.id ? state.turnUser : u
-        );
+        dice();
 
-        emitAll("gameState", { dice: state.dice });
+        nextPosition();
 
-        emitInfo("dice", state.dice);
+        updateUserList();
 
         setTimeout(() => {
           emitAll("gameState", { users: state.users });
@@ -49,38 +81,61 @@ const Game = (room) => {
           setTimeout(checkBoard, 1000);
         }, 3000);
 
-        const onGoblet = () => {
-          emitAll("gameWinner", state.turnUser);
-        };
+        const onGoblet = () => emitAll("gameWinner", state.turnUser);
 
         const onTreasure = () => {
-          state.treasure = treasures.pop();
-          treasures.unshift(state.treasure);
+          drawTreasure();
+
+          switch (state.treasure.type) {
+            case "protection":
+              state.turnUser.protections.push(state.treasure);
+              break;
+            case "felix":
+              state.turnUser.felix = true;
+            default:
+              break;
+          }
 
           emitAll("gameState", { treasure: state.treasure });
 
           emitInfo("treasure", state.treasure);
+
+          setTimeout(nextTurn, 3000);
         };
 
         const onCard = () => {
-          state.card = cards.pop();
-          cards.unshift(state.card);
+          drawCard();
 
           emitAll("gameState", { card: state.card });
 
           emitInfo("card", state.card);
 
-          state.turnUser.position += state.card.position;
-          state.turnUser.waitTurn = state.card.waitTurn;
-          state.users = state.users.map((u) =>
-            u.id === state.turnUser.id ? state.turnUser : u
-          );
+          switch (state.card.type) {
+            case "move":
+              state.turnUser.position += state.card.position;
+              break;
+            case "monster":
+              if (state.turnUser.protections.length > 0) {
+                setTimeout(() => {
+                  const protection = state.turnUser.protections.pop();
+                  emitInfo("text", `${protection.title} kullanıldı!`);
+                }, 3000);
+              } else {
+                state.turnUser.waitTurn = state.card.waitTurn;
+              }
+            default:
+              break;
+          }
+
+          updateUserList();
 
           setTimeout(() => {
             emitAll("gameState", { users: state.users });
 
             if (state.card.position !== 0) {
               setTimeout(checkBoard, 1000);
+            } else {
+              setTimeout(nextTurn, 1000);
             }
           }, 3000);
         };
@@ -97,6 +152,7 @@ const Game = (room) => {
               onCard();
               break;
             default:
+              nextTurn();
               break;
           }
         };

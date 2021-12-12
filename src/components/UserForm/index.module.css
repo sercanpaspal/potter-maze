@@ -21,6 +21,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  width: 400px;
+  max-width: 100%;
 }
 
 .figure label {

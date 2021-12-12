@@ -12,26 +12,26 @@ const GameOverlayInfo = ({ infos }) => {
   useEffect(() => {
     setOpened(false);
     setHide(false);
-  }, [infos]);
+  }, [infos.length]);
 
   useEffect(() => {
     const timeout = setTimeout(() => setOpened(true), 50);
 
     return () => clearTimeout(timeout);
-  }, [infos]);
+  }, [infos.length]);
 
   useEffect(() => {
     const timeout = setTimeout(() => setOpened(false), 3000);
 
     return () => clearTimeout(timeout);
-  }, [infos]);
+  }, [infos.length]);
 
   useEffect(() => {
     if (!opened) {
       const timeout = setTimeout(() => setHide(true), 800);
       return () => clearTimeout(timeout);
     }
-  }, [infos, opened]);
+  }, [infos.length, opened]);
 
   if (infos.length === 0) return "";
 
@@ -41,6 +41,9 @@ const GameOverlayInfo = ({ infos }) => {
 
   switch (info.type) {
     case "dice":
+      content = <h1>{info.payload}</h1>;
+      break;
+    case "text":
       content = <h1>{info.payload}</h1>;
       break;
     case "card":
