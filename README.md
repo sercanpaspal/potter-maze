@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./public/logo192.png"   style="width:72px;" align="center" />
+<img src="./public/logo192.png" style="width:72px;" align="center" />
 <br />
 <br />
 </div>
@@ -7,6 +7,8 @@
 # Potter Maze
 
 Arkadaşlarında önce ateş kadehine ulaş. Labirentin içinde maceraya hazır ol!
+
+<img src="./game.gif" />
 
 ## Başlangıç
 

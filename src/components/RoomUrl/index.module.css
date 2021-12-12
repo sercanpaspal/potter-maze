@@ -1,0 +1,13 @@
+.roomUrl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roomUrl a {
+  margin-right: 10px;
+}
+
+.roomUrl button {
+  margin: 0
+}

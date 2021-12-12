@@ -22,3 +22,7 @@
   height: 20px;
   width: 40px;
 }
+
+.themeList li.active button {
+  opacity: .4;
+}

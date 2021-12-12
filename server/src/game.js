@@ -3,8 +3,8 @@ const board = require("./data/board");
 
 const Game = (room) => {
   let users = _.shuffle(room.map(({ socket, ...user }) => user));
-  const cards = require("./data/cards");
-  const treasures = require("./data/treasures");
+  const cards = _.shuffle(require("./data/cards"));
+  const treasures = _.shuffle(require("./data/treasures"));
 
   let state = {
     board,
@@ -52,12 +52,12 @@ const Game = (room) => {
   };
 
   const dice = () => {
-    state.dice = state.turnUser.felix ? _.random(4, 6) : _.random(1, 6);
+    state.dice = state.turnUser.felix ? _.random(4, 6) : 4; //_.random(1, 6);
     state.turnUser.felix = false;
 
     emitAll("gameState", { dice: state.dice });
 
-    emitInfo("dice", state.dice);
+    emitInfo("dice", `${state.turnUser.name} ${state.dice}`);
   };
 
   const nextPosition = () => {

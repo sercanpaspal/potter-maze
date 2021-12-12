@@ -37,7 +37,7 @@ module.exports = [
   },
   {
     key: "troll",
-    waitTurn: 2,
+    waitTurn: 1,
     position: 0,
     title: "troll",
     type: "monster",
