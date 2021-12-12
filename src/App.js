@@ -12,8 +12,9 @@ import {
   setGameState,
   setGameWinner,
 } from "./store/actions";
+import { socketUrl } from "./utils";
 
-export const socket = io(process.env.REACT_APP_SOCKET_URI, {
+export const socket = io(socketUrl, {
   transports: ["websocket"],
 });
 

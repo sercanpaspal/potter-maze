@@ -1,5 +1,6 @@
 const express = require("express");
 const http = require("http");
+const path = require("path");
 const Server = require("socket.io").Server;
 const dotenv = require("dotenv");
 const uuid = require("uuid");
@@ -7,7 +8,15 @@ const Game = require("./game");
 
 dotenv.config();
 
+const clientBuildPath = path.join(__dirname, "../../", "build");
+
 const app = express();
+
+app.use(express.static(clientBuildPath));
+
+app.get("/", function (_, res) {
+  res.sendFile(clientBuildPath);
+});
 
 const httpServer = http.createServer(app);
 
@@ -93,7 +102,6 @@ io.on("connection", (socket) => {
   socket.on("roomStart", (roomId) => {
     const room = ROOMS[roomId];
     if (roomId === userId && room.length >= MIN_USER) {
-      console.log("GAME START");
       sendRoomStarted(roomId);
 
       Game(room);
@@ -121,4 +129,4 @@ io.on("connection", (socket) => {
 
 console.log("Server started!");
 
-httpServer.listen(process.env.PORT || 3000);
+httpServer.listen(process.env.PORT || 3001);

@@ -1,7 +1,7 @@
 .gameBoard {
   display: flex;
-  width: calc(--square-size * 8);
-  height: calc(--square-size * 8);
+  width: calc(var(--square-size) * 8 + 16);
+  height: calc(var(--square-size) * 8 + 16);
   flex-direction: column;
   background-color: var(--secondary-300);
   border: 8px solid var(--primary-500);
@@ -10,7 +10,7 @@
 }
 
 .gameBoardRow {
-  width: calc(--square-size * 8);
+  width: calc(var(--square-size) * 8);
   display: flex;
   flex-direction: row;
 }

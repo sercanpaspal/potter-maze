@@ -35,7 +35,7 @@ const Game = (room) => {
   };
 
   const dice = () => {
-    state.dice = state.turnUser.felix ? _.random(4, 6) : 50;
+    state.dice = state.turnUser.felix ? _.random(4, 6) : _.random(1, 6);
     state.turnUser.felix = false;
 
     emitAll("gameState", { dice: state.dice });
