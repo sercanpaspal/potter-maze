@@ -6,6 +6,8 @@
 
 # Potter Maze
 
+Demo, [https://potter-maze.paspal.net/](https://potter-maze.paspal.net/)
+
 Arkadaşlarında önce ateş kadehine ulaş. Labirentin içinde maceraya hazır ol!
 
 <img src="https://raw.githubusercontent.com/sercanpaspal/potter-maze/main/game.gif" />
