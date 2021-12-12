@@ -6,7 +6,7 @@
 
 # Potter Maze
 
-Demo, [https://potter-maze.paspal.net/](https://potter-maze.paspal.net/)
+[https://potter-maze.paspal.net/](https://potter-maze.paspal.net/)
 
 Arkadaşlarında önce ateş kadehine ulaş. Labirentin içinde maceraya hazır ol!
 
