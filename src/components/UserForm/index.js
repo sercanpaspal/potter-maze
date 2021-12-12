@@ -17,7 +17,7 @@ const UserForm = ({ user, setUser, handleSubmit, children }) => {
       <div>
         <input
           className={styles.input}
-          placeholder="Username"
+          placeholder="kullanıcı adı"
           name="name"
           type="text"
           defaultValue={user.name}
@@ -26,7 +26,7 @@ const UserForm = ({ user, setUser, handleSubmit, children }) => {
       </div>
       <div>
         <ul className={styles.figure}>
-          {["glass", "hat", "wand", "howler"].map((figure, _i) => (
+          {["aylak", "kılkuyruk", "patiayak", "çatalak"].map((figure, _i) => (
             <li key={`figure-input-${_i}`}>
               <label>
                 <input

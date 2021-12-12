@@ -3,7 +3,7 @@ import { SET_USER, SET_USER_ID } from "../actionTypes";
 const initialState = {
   id: null,
   name: "sercan",
-  figure: "howler",
+  figure: "aylak",
 };
 
 const user = (state = initialState, action) => {

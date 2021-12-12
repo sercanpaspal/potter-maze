@@ -3,12 +3,16 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
-  padding: 2px 0px;
+  height: 100%;
+  padding: 4px 0px;
 }
 
 .users li {
   font-size: 14px;
-  text-decoration: underline;
+  background-color: var(--primary-500);
+  color: var(--secondary-500);
+  line-height: 14px;
+  padding: 0px 2px;
 }

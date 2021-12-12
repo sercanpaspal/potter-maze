@@ -30,6 +30,10 @@
   height: 60%;
 }
 
+.special.goblet {
+  background-image: url('../../assets/goblet.png');
+}
+
 .colNumber {
   position: absolute;
   width: 100%;

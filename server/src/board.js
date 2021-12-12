@@ -24,7 +24,7 @@ module.exports = [
     coord: [5, 4],
   },
   {
-    type: "road",
+    type: "card",
     coord: [6, 4],
   },
   {
@@ -36,7 +36,7 @@ module.exports = [
     coord: [7, 3],
   },
   {
-    type: "road",
+    type: "treasure",
     coord: [7, 2],
   },
   {
@@ -48,11 +48,11 @@ module.exports = [
     coord: [7, 0],
   },
   {
-    type: "road",
+    type: "treasure",
     coord: [6, 0],
   },
   {
-    type: "road",
+    type: "card",
     coord: [5, 0],
   },
   {
@@ -68,7 +68,7 @@ module.exports = [
     coord: [4, 2],
   },
   {
-    type: "road",
+    type: "card",
     coord: [3, 2],
   },
   {
@@ -76,7 +76,7 @@ module.exports = [
     coord: [3, 1],
   },
   {
-    type: "road",
+    type: "treasure",
     coord: [3, 0],
   },
   {
@@ -92,7 +92,7 @@ module.exports = [
     coord: [0, 0],
   },
   {
-    type: "road",
+    type: "card",
     coord: [0, 1],
   },
   {
@@ -104,11 +104,11 @@ module.exports = [
     coord: [1, 2],
   },
   {
-    type: "road",
+    type: "card",
     coord: [1, 3],
   },
   {
-    type: "road",
+    type: "treasure",
     coord: [1, 4],
   },
   {
@@ -120,7 +120,7 @@ module.exports = [
     coord: [3, 4],
   },
   {
-    type: "road",
+    type: "card",
     coord: [3, 5],
   },
   {
@@ -128,7 +128,7 @@ module.exports = [
     coord: [3, 6],
   },
   {
-    type: "road",
+    type: "card",
     coord: [3, 7],
   },
   {
@@ -140,7 +140,7 @@ module.exports = [
     coord: [1, 7],
   },
   {
-    type: "road",
+    type: "goblet",
     coord: [0, 7],
   },
 ];

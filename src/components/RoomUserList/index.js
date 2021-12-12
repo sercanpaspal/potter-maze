@@ -5,11 +5,11 @@ import styles from "./index.module.css";
 
 const RoomUserList = ({ users, roomId, host = false }) => (
   <div className={styles.roomUserList}>
-    <h2>Kullanıcılar</h2>
+    <h2>kullanıcılar</h2>
     <table cellPadding={0} cellSpacing={0}>
       <thead>
-        <th>Kullanıcı Adı</th>
-        <th>Figür</th>
+        <th>kullanıcı adı</th>
+        <th>figür</th>
         {host && <th>*</th>}
       </thead>
       <tbody>
