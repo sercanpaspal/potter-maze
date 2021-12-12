@@ -57,7 +57,7 @@ const Game = (room) => {
 
     emitAll("gameState", { dice: state.dice });
 
-    emitInfo("dice", `${state.turnUser.name} ${state.dice}`);
+    emitInfo("dice", `${state.turnUser.name}: ${state.dice}`);
   };
 
   const nextPosition = () => {
