@@ -9,7 +9,7 @@ const GameCard = ({ card }) => (
         <p>{card.description}</p>
       </div>
     ) : (
-      <h1>kartlar</h1>
+      <h2>kartlar</h2>
     )}
   </div>
 );

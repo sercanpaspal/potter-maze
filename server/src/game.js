@@ -58,6 +58,8 @@ const Game = (room) => {
           treasures.unshift(state.treasure);
 
           emitAll("gameState", { treasure: state.treasure });
+
+          emitInfo("treasure", state.treasure);
         };
 
         const onCard = () => {

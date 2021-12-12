@@ -9,7 +9,7 @@ const GameTreasure = ({ treasure }) => (
         <p>{treasure.description}</p>
       </div>
     ) : (
-      <h1>hazineler</h1>
+      <h2>hazineler</h2>
     )}
   </div>
 );
