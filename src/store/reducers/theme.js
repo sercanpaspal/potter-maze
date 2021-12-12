@@ -1,9 +1,9 @@
 import { Themes } from "../../constants/enums";
 import { SET_THEME } from "../actionTypes";
 
-const initialState = Themes.GRYFFINDOR;
+const initialState = localStorage.getItem("theme") || Themes.GRYFFINDOR;
 
-const scene = (state = initialState, action) => {
+const theme = (state = initialState, action) => {
   switch (action.type) {
     case SET_THEME:
       return action.payload;
@@ -12,4 +12,4 @@ const scene = (state = initialState, action) => {
   }
 };
 
-export default scene;
+export default theme;

@@ -3,9 +3,9 @@
   font-weight: 900;
   padding: 8px 20px;
   text-align: center;
-  background-color: var(--secondary-500);
-  color: var(--primary-500);
-  border: 4px solid var(--secondary-700);
+  background-color: var(--primary-500);
+  color: var(--secondary-500);
+  border: 4px solid var(--primary-700);
   border-radius: 10px;
   cursor: pointer;
   font-family: var(--font-family);
@@ -18,12 +18,11 @@
 }
 
 .button:enabled:hover {
-  background-color: var(--secondary-300);
+  background-color: var(--primary-300);
 }
 
 .button:enabled:active {
-  background-color: var(--secondary-100);
-  color: var(--black);
+  background-color: var(--primary-100);
 }
 
 .button:disabled {

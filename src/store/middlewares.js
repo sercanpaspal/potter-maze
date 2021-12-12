@@ -1,6 +1,6 @@
 import { applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { SET_SCENE } from "./actionTypes";
+import { SET_SCENE, SET_THEME } from "./actionTypes";
 import { Scenes } from "../constants/enums";
 import { socket } from "../App";
 
@@ -28,6 +28,14 @@ const sceneMiddleware = (store) => (next) => (action) => {
   return next(action);
 };
 
-const middlewares = applyMiddleware(thunk, sceneMiddleware);
+const themeMiddleware = (store) => (next) => (action) => {
+  if (action.type === SET_THEME) {
+    localStorage.setItem("theme", action.payload);
+  }
+
+  return next(action);
+};
+
+const middlewares = applyMiddleware(thunk, sceneMiddleware, themeMiddleware);
 
 export default middlewares;

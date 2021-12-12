@@ -1,0 +1,8 @@
+.gameBoardCol {
+  width: var(--square-size);
+  height: var(--square-size);
+}
+
+.gameBoardCol.path {
+  background-color: var(--secondary-100);
+}

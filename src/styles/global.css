@@ -8,15 +8,15 @@
     --white: #EDEDED;
     --link: #2C5585;
     --danger: #852C2C;
-    --square-size: 50px;
+    --square-size: 60px;
     --font-family: 'Kings', cursive;
 }
 
 html, body {
   font-family: var(--font-family);
   font-size: 18px;
-  background-color: var(--primary-500);
-  color: var(--secondary-500);
+  background-color: var(--secondary-500);
+  color: var(--primary-500);
   width: 100%;
   height: 100%;
   display: flex;
@@ -39,7 +39,7 @@ h1 {
 }
 
 a {
-    color: var(--secondary-900);
+    color: var(--primary-900);
     text-decoration: underline;
 }
 

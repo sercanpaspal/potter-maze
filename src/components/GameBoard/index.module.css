@@ -1,0 +1,16 @@
+.gameBoard {
+  display: flex;
+  width: calc(--square-size * 8);
+  height: calc(--square-size * 8);
+  flex-direction: column;
+  background-color: var(--secondary-300);
+  border: 8px solid var(--primary-500);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.gameBoardRow {
+  width: calc(--square-size * 8);
+  display: flex;
+  flex-direction: row;
+}

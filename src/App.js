@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import { connect } from "react-redux";
 import { io } from "socket.io-client";
-import ThemeList from "./components/ThemeList";
+import Layout from "./components/Layout";
 import Scene from "./scenes";
 import {
   setUserId,
@@ -31,19 +30,12 @@ socket.on("roomStarted", setSceneGame);
 
 socket.on("gameState", setGameState);
 
-const App = ({ scene, theme }) => {
-  useEffect(() => {
-    document.body.classList = theme;
-  }, [theme]);
+const App = ({ scene }) => (
+  <Layout>
+    <Scene currentScene={scene} />
+  </Layout>
+);
 
-  return (
-    <div>
-      <ThemeList />
-      <Scene currentScene={scene} />
-    </div>
-  );
-};
-
-const mapStateToProps = ({ scene, theme }) => ({ scene, theme });
+const mapStateToProps = ({ scene }) => ({ scene });
 
 export default connect(mapStateToProps)(App);

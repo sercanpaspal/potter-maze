@@ -11,4 +11,6 @@ export const Scenes = {
 export const Themes = {
   GRYFFINDOR: "gryffindor",
   SLYTHERIN: "slytherin",
+  HUFFLEPUFF: "hufflepuff",
+  RAVENCLAW: "ravenclaw",
 };
