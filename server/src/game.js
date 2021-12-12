@@ -26,7 +26,7 @@ const Game = (room) => {
 
       emitInfo(
         "text",
-        `henüz kendine gelemedin, ${
+        `${state.turnUser.name}: henüz kendine gelemedin, ${
           state.turnUser.waitTurn > 0
             ? `${state.turnUser.waitTurn} tur daha bekle`
             : `sonraki tur katılabilirsin`
