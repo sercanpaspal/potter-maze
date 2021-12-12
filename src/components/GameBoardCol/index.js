@@ -15,7 +15,13 @@ const GameBoardCol = ({ row, col, game }) => {
   const colUsers = users.filter((u) => u.position === findIndex);
 
   return (
-    <div className={cn([styles.gameBoardCol, { [styles.path]: !!pieceType }])}>
+    <div
+      className={cn([
+        styles.gameBoardCol,
+        { [styles.path]: !!pieceType },
+        { [styles.grass]: !pieceType },
+      ])}
+    >
       {findIndex > -1 && (
         <div className={styles.colNumber}>{findIndex + 1}</div>
       )}

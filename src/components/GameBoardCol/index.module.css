@@ -34,6 +34,11 @@
   background-image: url('../../assets/goblet.png');
 }
 
+.grass {
+  background-size: cover;
+  background-image: url('../../assets/grass.png');
+}
+
 .colNumber {
   position: absolute;
   width: 100%;

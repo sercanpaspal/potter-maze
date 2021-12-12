@@ -21,7 +21,24 @@ const Game = (room) => {
     state.users.unshift(state.turnUser);
     state.dice = null;
 
-    emitAll("gameState", state);
+    if (state.turnUser.waitTurn > 0) {
+      state.turnUser.waitTurn -= 1;
+
+      emitInfo(
+        "text",
+        `henüz kendine gelemedin, ${
+          state.turnUser.waitTurn > 0
+            ? `${state.turnUser.waitTurn} tur daha bekle`
+            : `sonraki tur katılabilirsin`
+        }`
+      );
+
+      updateUserList();
+
+      setTimeout(nextTurn, 3000);
+    } else {
+      emitAll("gameState", state);
+    }
   };
 
   const drawCard = () => {
@@ -35,7 +52,7 @@ const Game = (room) => {
   };
 
   const dice = () => {
-    state.dice = state.turnUser.felix ? _.random(4, 6) : _.random(1, 6);
+    state.dice = state.turnUser.felix ? _.random(4, 6) : 4;
     state.turnUser.felix = false;
 
     emitAll("gameState", { dice: state.dice });

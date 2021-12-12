@@ -19,7 +19,7 @@ module.exports = [
   },
   {
     key: "troll",
-    waitTurn: 1,
+    waitTurn: 2,
     position: 0,
     title: "troll",
     type: "monster",
