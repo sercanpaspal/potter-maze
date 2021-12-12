@@ -10,6 +10,7 @@ import {
   setSceneKickedRoom,
   setSceneNotExistsRoom,
   setGameState,
+  setGameWinner,
 } from "./store/actions";
 
 export const socket = io(process.env.REACT_APP_SOCKET_URI, {
@@ -29,6 +30,8 @@ socket.on("roomKicked", setSceneKickedRoom);
 socket.on("roomStarted", setSceneGame);
 
 socket.on("gameState", setGameState);
+
+socket.on("gameWinner", setGameWinner);
 
 const App = ({ scene }) => (
   <Layout>

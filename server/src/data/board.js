@@ -4,11 +4,11 @@ module.exports = [
     coord: [7, 7],
   },
   {
-    type: "road",
+    type: "treasure",
     coord: [7, 6],
   },
   {
-    type: "treasure",
+    type: "road",
     coord: [6, 6],
   },
   {
@@ -24,11 +24,11 @@ module.exports = [
     coord: [5, 4],
   },
   {
-    type: "card",
+    type: "road",
     coord: [6, 4],
   },
   {
-    type: "road",
+    type: "card",
     coord: [7, 4],
   },
   {

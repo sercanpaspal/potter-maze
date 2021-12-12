@@ -6,6 +6,7 @@ export const Scenes = {
   KICKED_ROOM: "KICKED_ROOM",
   NOT_EXISTS_ROOM: "NOT_EXISTS_ROOM",
   GAME: "GAME",
+  GAME_END: "GAME_END",
 };
 
 export const Themes = {

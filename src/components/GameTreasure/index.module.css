@@ -1,0 +1,30 @@
+.treasure {
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--square-size) * 4);
+  background-color: var(--primary-700);
+  border: 8px solid var(--primary-500);
+  color: var(--secondary-300);
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.treasure > div {
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.treasure h1 {
+  transform: rotate(90deg);
+  font-size: 48px;
+}
+
+.treasure h2, .card p {
+  margin: 0;
+}

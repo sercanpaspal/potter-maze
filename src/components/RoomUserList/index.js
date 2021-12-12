@@ -8,9 +8,11 @@ const RoomUserList = ({ users, roomId, host = false }) => (
     <h2>kullanıcılar</h2>
     <table cellPadding={0} cellSpacing={0}>
       <thead>
-        <th>kullanıcı adı</th>
-        <th>figür</th>
-        {host && <th>*</th>}
+        <tr>
+          <th>kullanıcı adı</th>
+          <th>figür</th>
+          {host && <th>*</th>}
+        </tr>
       </thead>
       <tbody>
         {users.map((user, _i) => (

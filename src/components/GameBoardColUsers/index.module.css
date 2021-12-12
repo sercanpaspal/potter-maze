@@ -12,6 +12,8 @@
 .users li {
   font-size: 14px;
   background-color: var(--primary-500);
+  border: 2px solid var(--primary-900);
+  border-radius: 5px;
   color: var(--secondary-500);
   line-height: 14px;
   padding: 0px 2px;

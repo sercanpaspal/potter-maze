@@ -9,6 +9,7 @@ const scenes = {
   [Scenes.KICKED_ROOM]: lazy(() => import("./KickedRoom")),
   [Scenes.NOT_EXISTS_ROOM]: lazy(() => import("./NotExistsRoom")),
   [Scenes.GAME]: lazy(() => import("./Game")),
+  [Scenes.GAME_END]: lazy(() => import("./GameEnd")),
 };
 
 const Scene = ({ currentScene }) => {

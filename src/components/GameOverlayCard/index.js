@@ -1,12 +1,11 @@
-import React from "react";
 import { connect } from "react-redux";
+import GameCard from "../GameCard";
 import GameOverlay from "../GameOverlay";
-import styles from "./index.module.css";
 
 const GameOverlayCard = ({ card }) =>
   card && (
     <GameOverlay>
-      <h1 className={styles.card}>{card.title}</h1>
+      <GameCard />
     </GameOverlay>
   );
 

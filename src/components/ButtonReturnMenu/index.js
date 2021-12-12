@@ -1,10 +1,13 @@
 import { connect } from "react-redux";
 import { Scenes } from "../../constants/enums";
 import { changeScene } from "../../store/actions";
+import Button from "../Button";
 
-const ButtonReturnMenu = ({ changeScene }) => {
+const ButtonReturnMenu = ({ changeScene, ...props }) => {
   return (
-    <button onClick={() => changeScene(Scenes.MENU)}>return to the menu</button>
+    <Button onClick={() => changeScene(Scenes.MENU)} {...props}>
+      return to the menu
+    </Button>
   );
 };
 

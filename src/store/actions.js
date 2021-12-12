@@ -2,6 +2,7 @@ import { store } from ".";
 import { Scenes } from "../constants/enums";
 import {
   SET_GAME_STATE,
+  SET_GAME_WINNER,
   SET_ROOM_ID,
   SET_ROOM_USERS,
   SET_SCENE,
@@ -21,6 +22,9 @@ export const setRoomUsers = (users) =>
 
 export const setGameState = (state) =>
   store.dispatch({ type: SET_GAME_STATE, payload: state });
+
+export const setGameWinner = (winnerUser) =>
+  store.dispatch({ type: SET_GAME_WINNER, payload: winnerUser });
 
 export const setSceneKickedRoom = () =>
   changeScene(Scenes.KICKED_ROOM)(store.dispatch);

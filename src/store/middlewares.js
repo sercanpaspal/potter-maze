@@ -1,12 +1,11 @@
 import { applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { SET_SCENE, SET_THEME } from "./actionTypes";
+import { SET_GAME_WINNER, SET_SCENE, SET_THEME } from "./actionTypes";
 import { Scenes } from "../constants/enums";
 import { socket } from "../App";
 
 const sceneMiddleware = (store) => (next) => (action) => {
   const { user, room } = store.getState();
-  console.log(action);
 
   if (action.type === SET_SCENE) {
     switch (action.payload) {
@@ -28,6 +27,14 @@ const sceneMiddleware = (store) => (next) => (action) => {
   return next(action);
 };
 
+const gameMiddleware = (store) => (next) => (action) => {
+  if (action.type === SET_GAME_WINNER) {
+    store.dispatch({ type: SET_SCENE, payload: Scenes.GAME_END });
+  }
+
+  return next(action);
+};
+
 const themeMiddleware = (store) => (next) => (action) => {
   if (action.type === SET_THEME) {
     localStorage.setItem("theme", action.payload);
@@ -36,6 +43,11 @@ const themeMiddleware = (store) => (next) => (action) => {
   return next(action);
 };
 
-const middlewares = applyMiddleware(thunk, sceneMiddleware, themeMiddleware);
+const middlewares = applyMiddleware(
+  thunk,
+  sceneMiddleware,
+  themeMiddleware,
+  gameMiddleware
+);
 
 export default middlewares;

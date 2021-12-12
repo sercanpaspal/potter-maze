@@ -1,10 +1,13 @@
-import { SET_GAME_STATE } from "../actionTypes";
+import { SET_GAME_STATE, SET_GAME_WINNER } from "../actionTypes";
 
 const initialState = {
   board: [],
   users: [],
   turnUser: null,
   dice: null,
+  card: null,
+  treasure: null,
+  winnerUser: null,
 };
 
 const game = (state = initialState, action) => {
@@ -13,6 +16,11 @@ const game = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
+      };
+    case SET_GAME_WINNER:
+      return {
+        ...state,
+        winnerUser: action.payload,
       };
     default:
       return state;

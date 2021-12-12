@@ -28,16 +28,15 @@ const UserForm = ({ user, setUser, handleSubmit, children }) => {
         <ul className={styles.figure}>
           {["aylak", "kılkuyruk", "patiayak", "çatalak"].map((figure, _i) => (
             <li key={`figure-input-${_i}`}>
-              <label>
-                <input
-                  name="figure"
-                  type="radio"
-                  value={figure}
-                  defaultChecked={figure === user.figure}
-                  required
-                />
-                {figure}
-              </label>
+              <input
+                name="figure"
+                type="radio"
+                id={`figure_${_i}`}
+                value={figure}
+                defaultChecked={figure === user.figure}
+                required
+              />
+              <label htmlFor={`figure_${_i}`}>{figure}</label>
             </li>
           ))}
         </ul>

@@ -1,5 +1,6 @@
 module.exports = [
   {
+    key: "dementor",
     waitTurn: 0,
     position: -2,
     title: "Ruh Emici",
@@ -7,6 +8,7 @@ module.exports = [
       "Hava birden buz kesti ve gökyüzünde ruh emiciler belirdi. 2 adım geri git.",
   },
   {
+    key: "broom",
     waitTurn: 0,
     position: 2,
     title: "Süpürge",
