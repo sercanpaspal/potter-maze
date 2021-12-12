@@ -3,6 +3,7 @@ import { SET_GAME_STATE, SET_GAME_WINNER } from "../actionTypes";
 const initialState = {
   board: [],
   users: [],
+  infos: [],
   turnUser: null,
   dice: null,
   card: null,

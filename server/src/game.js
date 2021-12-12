@@ -3,12 +3,13 @@ const board = require("./data/board");
 
 const Game = (room) => {
   let users = room.map(({ socket, ...user }) => user);
-  const cards = _.shuffle(require("./data/cards"));
+  const cards = require("./data/cards");
   const treasures = _.shuffle(require("./data/treasures"));
 
   let state = {
     board,
     users,
+    infos: [],
     turnUser: users[0],
     dice: null,
     card: null,
@@ -20,12 +21,17 @@ const Game = (room) => {
       socket.emit(event, ...args);
     });
 
+  const emitInfo = (type, payload) => {
+    state.infos.push({ type, payload });
+    emitAll("gameState", { infos: state.infos });
+  };
+
   emitAll("gameState", state);
 
   room.forEach(({ socket, ...user }) => {
     socket.on("gameDice", () => {
       if (!state.dice) {
-        state.dice = 1; //_.random(1, 6);
+        state.dice = 4; //_.random(1, 6);
         const nextPosition = state.turnUser.position + state.dice;
         state.turnUser.position =
           nextPosition > board.length - 1 ? board.length - 1 : nextPosition;
@@ -35,35 +41,63 @@ const Game = (room) => {
 
         emitAll("gameState", { dice: state.dice });
 
-        const checkBoard = () => {
-          const col = board[state.turnUser.position];
-          if (col.type === "goblet") {
-            emitAll("gameWinner", state.turnUser);
-          } else if (col.type === "treasure") {
-            state.treasure = treasures.pop();
-            treasures.unshift(state.treasure);
-
-            emitAll("gameState", { treasure: state.treasure });
-          } else if (col.type === "card") {
-            state.card = cards.pop();
-            cards.unshift(state.card);
-
-            emitAll("gameState", { card: state.card });
-
-            state.turnUser.position += state.card.position;
-            state.turnUser.waitTurn = state.card.waitTurn;
-            state.users = state.users.map((u) =>
-              u.id === state.turnUser.id ? state.turnUser : u
-            );
-            emitAll("gameState", { users: state.users });
-          }
-        };
+        emitInfo("dice", state.dice);
 
         setTimeout(() => {
           emitAll("gameState", { users: state.users });
 
           setTimeout(checkBoard, 1000);
         }, 3000);
+
+        const onGoblet = () => {
+          emitAll("gameWinner", state.turnUser);
+        };
+
+        const onTreasure = () => {
+          state.treasure = treasures.pop();
+          treasures.unshift(state.treasure);
+
+          emitAll("gameState", { treasure: state.treasure });
+        };
+
+        const onCard = () => {
+          state.card = cards.pop();
+          cards.unshift(state.card);
+
+          emitAll("gameState", { card: state.card });
+
+          emitInfo("card", state.card);
+
+          state.turnUser.position += state.card.position;
+          state.turnUser.waitTurn = state.card.waitTurn;
+          state.users = state.users.map((u) =>
+            u.id === state.turnUser.id ? state.turnUser : u
+          );
+
+          setTimeout(() => {
+            emitAll("gameState", { users: state.users });
+
+            if (state.card.position !== 0) {
+              setTimeout(checkBoard, 1000);
+            }
+          }, 3000);
+        };
+
+        const checkBoard = () => {
+          switch (board[state.turnUser.position].type) {
+            case "goblet":
+              onGoblet();
+              break;
+            case "treasure":
+              onTreasure();
+              break;
+            case "card":
+              onCard();
+              break;
+            default:
+              break;
+          }
+        };
       }
     });
 

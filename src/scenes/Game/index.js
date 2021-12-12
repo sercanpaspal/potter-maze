@@ -2,18 +2,14 @@ import GameBoard from "../../components/GameBoard";
 import GameCard from "../../components/GameCard";
 import GameHeader from "../../components/GameHeader";
 import GameFooter from "../../components/GameFooter";
-import GameOverlayCard from "../../components/GameOverlayCard";
-import GameOverlayTreasure from "../../components/GameOverlayTreasure";
-import GameOverlayDice from "../../components/GameOverlayDice";
 import styles from "./index.module.css";
 import GameTreasure from "../../components/GameTreasure";
+import GameOverlayInfo from "../../components/GameOverlayInfo";
 
-const GameScene = ({ dice }) => {
+const GameScene = () => {
   return (
     <div>
-      <GameOverlayDice />
-      <GameOverlayCard />
-      <GameOverlayTreasure />
+      <GameOverlayInfo />
       <GameHeader />
       <div className={styles.game}>
         <GameBoard />
