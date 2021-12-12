@@ -5,7 +5,7 @@ const GameHeader = ({ game, user }) => {
 
   const isYourTurn = turnUser.id === user.id;
 
-  return <h1>{isYourTurn ? "Your Turn" : `${user.name}'s Turn`}</h1>;
+  return <h1>{isYourTurn ? "senin sıran" : `sıra: ${user.name}`}</h1>;
 };
 
 const mapStateToProps = ({ game, user }) => ({ game, user });
