@@ -16,7 +16,7 @@ Arkadaşlarında önce ateş kadehine ulaş. Labirentin içinde maceraya hazır 
 
 - Odanı oluşturduktan sonra oluşturulan davet bağlantısı ile arkadaşlarını davet et ve herkes hazır olduğunda oyunu başlat!
 
-- Oyun en fazla 4 kişi, en az da 2 kişi (test edilebilmesi için şimdilik tek kişi) ile oynanır.
+- Oyun en fazla 4 kişi, en az da 2 kişi ile oynanır.
 
 - Herkes aynı noktadan oyuna başlar.
 
