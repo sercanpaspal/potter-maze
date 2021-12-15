@@ -1,14 +1,16 @@
 <div align="center">
-<img src="./public/logo192.png" style="width:72px;" align="center" />
+<img src="https://raw.githubusercontent.com/sercanpaspal/potter-maze/main/public/logo192.png" style="width:72px;" align="center" />
 <br />
 <br />
 </div>
 
 # Potter Maze
 
+[https://potter-maze.paspal.net/](https://potter-maze.paspal.net/)
+
 Arkadaşlarında önce ateş kadehine ulaş. Labirentin içinde maceraya hazır ol!
 
-<img src="./game.gif" />
+<img src="https://raw.githubusercontent.com/sercanpaspal/potter-maze/main/game.gif" />
 
 ## Başlangıç
 
