@@ -79,7 +79,7 @@ io.on("connection", (socket) => {
 
   socket.on("roomJoin", (roomId, user) => {
     const room = ROOMS[roomId];
-    if (room && room.length <= MAX_USER) {
+    if (room && room.length < MAX_USER) {
       ROOMS[roomId].push(makeUser(user.name, user.figure));
       sendRoomUsers(roomId);
     } else {
