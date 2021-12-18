@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { socket } from "../../App";
+import socket from "../../socket";
 import Button from "../../components/Button";
 import styles from "./index.module.css";
 

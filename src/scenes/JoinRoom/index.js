@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { socket } from "../../App";
+import socket from "../../socket";
 import Button from "../../components/Button";
 import ButtonReturnMenu from "../../components/ButtonReturnMenu";
 import UserForm from "../../components/UserForm";
 import { Scenes } from "../../constants/enums";
-import { changeScene } from "../../store/actions";
+import { setScene } from "../../store/slices/scene";
 import styles from "./index.module.css";
 
-const JoinRoomScene = ({ roomId, changeScene }) => {
+const JoinRoomScene = ({ roomId, setScene }) => {
   useEffect(() => {
     socket.emit("roomExistsCheck", roomId);
   }, [roomId]);
@@ -16,7 +16,7 @@ const JoinRoomScene = ({ roomId, changeScene }) => {
   return (
     <div className={styles.joinRoom}>
       <h1>odaya katıl</h1>
-      <UserForm handleSubmit={() => changeScene(Scenes.WAIT_ROOM)}>
+      <UserForm handleSubmit={() => setScene(Scenes.WAIT_ROOM)}>
         <Button type="submit">katıl</Button>
       </UserForm>
 
@@ -27,6 +27,6 @@ const JoinRoomScene = ({ roomId, changeScene }) => {
 
 const mapStateToProps = ({ room }) => ({ roomId: room.id });
 
-const mapDispatchToProps = { changeScene };
+const mapDispatchToProps = { setScene };
 
 export default connect(mapStateToProps, mapDispatchToProps)(JoinRoomScene);
