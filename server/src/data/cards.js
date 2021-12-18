@@ -12,7 +12,7 @@ module.exports = [
     key: "dragon",
     waitTurn: 2,
     position: 0,
-    title: "dragon",
+    title: "Ejderha",
     type: "monster",
     description:
       "gök yüzünde birden bire ejderha belirdi ve alevleriyle seni yaraladı. İyileşmek uzun sürecek 2 tur bekle",
