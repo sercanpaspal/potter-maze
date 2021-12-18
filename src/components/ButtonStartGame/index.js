@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { socket } from "../../App";
+import socket from "../../socket";
 import Button from "../Button";
 
 const ButtonStartGame = ({ roomId }) => {

@@ -1,5 +1,8 @@
-import { createStore } from "redux";
-import middlewares from "./middlewares";
-import rootReducer from "./reducers";
+import { configureStore } from "@reduxjs/toolkit";
+import middleware from "./middlewares";
+import reducer from "./slices";
 
-export const store = createStore(rootReducer, middlewares);
+export const store = configureStore({
+  reducer,
+  middleware,
+});

@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
 import { Scenes } from "../../constants/enums";
-import { changeScene } from "../../store/actions";
+import { setScene } from "../../store/slices/scene";
 import Button from "../Button";
 
-const ButtonReturnMenu = ({ changeScene, ...props }) => {
+const ButtonReturnMenu = ({ setScene, ...props }) => {
   return (
-    <Button onClick={() => changeScene(Scenes.MENU)} {...props}>
+    <Button onClick={() => setScene(Scenes.MENU)} {...props}>
       menüye dön
     </Button>
   );
 };
 
-const mapDispatchToProps = { changeScene };
+const mapDispatchToProps = { setScene };
 
 export default connect(null, mapDispatchToProps)(ButtonReturnMenu);

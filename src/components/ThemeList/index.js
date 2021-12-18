@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Themes } from "../../constants/enums";
-import { changeTheme } from "../../store/actions";
+import { setTheme } from "../../store/slices/theme";
 import cn from "classnames";
 import styles from "./index.module.css";
 
-const ThemeList = ({ theme, changeTheme }) => {
+const ThemeList = ({ theme, setTheme }) => {
   useEffect(() => {
     document.body.classList = theme;
   }, [theme]);
@@ -14,7 +14,7 @@ const ThemeList = ({ theme, changeTheme }) => {
     <ul className={styles.themeList}>
       {Object.values(Themes).map(({ key, primaryColor, secondaryColor }) => (
         <li key={key} className={cn([{ [styles.active]: theme === key }])}>
-          <button onClick={() => changeTheme(key)}>
+          <button onClick={() => setTheme(key)}>
             <div style={{ background: primaryColor }}></div>
             <div style={{ background: secondaryColor }}></div>
           </button>
@@ -24,7 +24,7 @@ const ThemeList = ({ theme, changeTheme }) => {
   );
 };
 
-const mapDispatchToProps = { changeTheme };
+const mapDispatchToProps = { setTheme };
 
 const mapStateToProps = ({ theme }) => ({ theme });
 

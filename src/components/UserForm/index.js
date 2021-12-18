@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { setUser } from "../../store/actions";
+import { setUser } from "../../store/slices/user";
 import styles from "./index.module.css";
 
 const UserForm = ({ user, setUser, handleSubmit, children }) => {
