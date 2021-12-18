@@ -72,10 +72,13 @@ io.on("connection", (socket) => {
 
   socket.on("roomRemove", (roomId) => delete ROOMS[roomId]);
 
-  socket.on(
-    "roomExistsCheck",
-    (roomId) => !ROOMS[roomId] && socket.emit("roomNotExists")
-  );
+  socket.on("roomCheck", (roomId) => {
+    if (!ROOMS[roomId]) {
+      socket.emit("roomNotExists");
+    } else if (ROOMS[roomId].length >= MAX_USER) {
+      socket.emit("roomFull");
+    }
+  });
 
   socket.on("roomJoin", (roomId, user) => {
     const room = ROOMS[roomId];
@@ -83,7 +86,7 @@ io.on("connection", (socket) => {
       ROOMS[roomId].push(makeUser(user.name, user.figure));
       sendRoomUsers(roomId);
     } else {
-      socket.emit("roomNotExists");
+      socket.emit("roomFull");
     }
   });
 

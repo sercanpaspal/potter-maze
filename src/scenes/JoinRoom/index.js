@@ -10,7 +10,7 @@ import styles from "./index.module.css";
 
 const JoinRoomScene = ({ roomId, setScene }) => {
   useEffect(() => {
-    socket.emit("roomExistsCheck", roomId);
+    socket.emit("roomCheck", roomId);
   }, [roomId]);
 
   return (

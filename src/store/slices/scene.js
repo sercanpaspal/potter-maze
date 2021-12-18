@@ -21,6 +21,8 @@ socketOnDispatch("roomNotExists", () => setScene(Scenes.NOT_EXISTS_ROOM));
 
 socketOnDispatch("roomKicked", () => setScene(Scenes.KICKED_ROOM));
 
+socketOnDispatch("roomFull", () => setScene(Scenes.FULL_ROOM));
+
 socketOnDispatch("roomStarted", () => setScene(Scenes.GAME));
 
 export default sceneSlice.reducer;

@@ -1,5 +1,5 @@
 import ButtonReturnMenu from "../../components/ButtonReturnMenu";
-const KickedRoomScreen = () => {
+const FullRoomScreen = () => {
   return (
     <div>
       <h1>Oda dolu</h1>
@@ -9,4 +9,4 @@ const KickedRoomScreen = () => {
   );
 };
 
-export default KickedRoomScreen;
+export default FullRoomScreen;
