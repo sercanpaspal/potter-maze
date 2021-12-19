@@ -132,4 +132,4 @@ io.on("connection", (socket) => {
 
 console.log("Server started!");
 
-httpServer.listen(process.env.PORT || 3001);
+httpServer.listen(process.env.PORT || 80);

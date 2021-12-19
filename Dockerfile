@@ -12,6 +12,6 @@ WORKDIR /usr/src/app/server
 
 RUN npm install
 
-EXPOSE 3001
+EXPOSE 80
 
 CMD [ "npm", "run", "start" ]
