@@ -1,9 +1,11 @@
 import { io } from "socket.io-client";
 import { store } from "./store";
 
-const socketUrl = process.env.REACT_APP_SOCKET_PORT
-  ? `${window.location.protocol}//${window.location.hostname}:${process.env.REACT_APP_SOCKET_PORT}`
-  : window.location.origin;
+const socketPort = process?.env?.REACT_APP_SOCKET_PORT;
+
+const socketUrl = `${window.location.protocol}//${window.location.hostname}${
+  socketPort ? `:${socketPort}` : ""
+}`;
 
 const socket = io(socketUrl, {
   transports: ["websocket"],
