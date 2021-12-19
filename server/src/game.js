@@ -168,7 +168,7 @@ const Game = (room) => {
         };
 
         const checkBoard = () => {
-          switch (board[state.turnUser.position].type) {
+          switch (board[state.turnUser.position]?.type) {
             case "goblet":
               onGoblet();
               break;

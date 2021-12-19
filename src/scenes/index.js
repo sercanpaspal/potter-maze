@@ -7,6 +7,7 @@ const scenes = {
   [Scenes.JOIN_ROOM]: lazy(() => import("./JoinRoom")),
   [Scenes.WAIT_ROOM]: lazy(() => import("./WaitRoom")),
   [Scenes.KICKED_ROOM]: lazy(() => import("./KickedRoom")),
+  [Scenes.NOT_EXISTS_ROOM]: lazy(() => import("./NotExistsRoom")),
   [Scenes.FULL_ROOM]: lazy(() => import("./FullRoom")),
   [Scenes.GAME]: lazy(() => import("./Game")),
   [Scenes.GAME_END]: lazy(() => import("./GameEnd")),
