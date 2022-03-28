@@ -1,8 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import middleware from "./middlewares";
+import createSagaMiddleware from "redux-saga";
 import reducer from "./slices";
+import sagas from "./sagas";
 
-export const store = configureStore({
+const sagaMiddleware = createSagaMiddleware();
+
+const store = configureStore({
   reducer,
-  middleware,
+  middleware: [sagaMiddleware],
 });
+
+sagaMiddleware.run(sagas);
+
+export { store };
