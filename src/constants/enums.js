@@ -32,3 +32,10 @@ export const Themes = {
     secondaryColor: "#B5B5B5",
   },
 };
+
+export const Figures = {
+  moony: 'moony',
+  wormtail: 'wormtail',
+  padfoot: 'padfoot',
+  prongs: 'prongs'
+}

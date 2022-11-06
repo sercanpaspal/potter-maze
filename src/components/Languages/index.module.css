@@ -1,0 +1,7 @@
+.languages {
+    position: relative;
+    z-index: 1;
+}
+.languages button {
+    margin: 0 5px;
+}

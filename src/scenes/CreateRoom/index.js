@@ -4,11 +4,14 @@ import ButtonStartGame from "../../components/ButtonStartGame";
 import ButtonReturnMenu from "../../components/ButtonReturnMenu";
 import styles from "./index.module.css";
 import RoomUrl from "../../components/RoomUrl";
+import {useTranslation} from "react-i18next";
 
 const CreateRoomScene = ({ roomId }) => {
+  const { t } = useTranslation();
+
   return roomId ? (
     <div className={styles.createRoom}>
-      <h1>oda bağlantısını paylaş</h1>
+      <h1>{t('share room link')}</h1>
 
       <RoomUrl roomId={roomId} />
 

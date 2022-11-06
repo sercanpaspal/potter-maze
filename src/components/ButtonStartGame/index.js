@@ -1,11 +1,13 @@
 import { connect } from "react-redux";
 import socket from "../../socket";
 import Button from "../Button";
+import {useTranslation} from "react-i18next";
 
 const ButtonStartGame = ({ roomId }) => {
+  const { t } = useTranslation();
   return (
     <Button onClick={() => socket.emit("roomStart", roomId)}>
-      oyunu başlat
+      {t('start game')}
     </Button>
   );
 };

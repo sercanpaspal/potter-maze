@@ -2,8 +2,10 @@ import styles from "./index.module.css";
 import { getRoomUrl } from "../../utils";
 import Button from "../Button";
 import { useEffect, useState } from "react";
+import {useTranslation} from "react-i18next";
 
 const RoomUrl = ({ roomId }) => {
+  const { t } = useTranslation()
   const [copied, setCopied] = useState(false);
   const roomUrl = getRoomUrl(roomId);
 
@@ -32,7 +34,7 @@ const RoomUrl = ({ roomId }) => {
         {roomUrl}
       </a>
       <Button small={true} onClick={() => copy()}>
-        {copied ? "kopyalandı" : "kopyala"}
+        {copied ? t('copied') : t('copy')}
       </Button>
     </div>
   );

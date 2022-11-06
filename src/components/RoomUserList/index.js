@@ -2,23 +2,27 @@ import { connect } from "react-redux";
 import socket from "../../socket";
 import Button from "../../components/Button";
 import styles from "./index.module.css";
+import {useTranslation} from "react-i18next";
 
-const RoomUserList = ({ users, roomId, host = false }) => (
-  <div className={styles.roomUserList}>
-    <h2>kullanıcılar</h2>
-    <table cellPadding={0} cellSpacing={0}>
-      <thead>
+const RoomUserList = ({ users, roomId, host = false }) => {
+  const { t } = useTranslation()
+
+  return (
+    <div className={styles.roomUserList}>
+      <h2>{t('users')}</h2>
+      <table cellPadding={0} cellSpacing={0}>
+        <thead>
         <tr>
-          <th>kullanıcı adı</th>
-          <th>figür</th>
+          <th>{t('username')}</th>
+          <th>{t('figure')}</th>
           {host && <th>*</th>}
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         {users.map((user, _i) => (
           <tr key={`user-${_i}`}>
             <td>{user.name}</td>
-            <td>{user.figure}</td>
+            <td>{t(user.figure)}</td>
             {host && (
               <td>
                 {roomId !== user.id && (
@@ -34,10 +38,11 @@ const RoomUserList = ({ users, roomId, host = false }) => (
             )}
           </tr>
         ))}
-      </tbody>
-    </table>
-  </div>
-);
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 const mapStateToProps = ({ room: { users } }) => ({ users });
 

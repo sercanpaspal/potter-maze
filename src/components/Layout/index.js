@@ -1,11 +1,13 @@
 import ThemeList from "../ThemeList";
 import GithubCorner from "react-github-corner";
 import styles from "./index.module.css";
+import Languages from "../Languages";
 
 const Layout = ({ children }) => {
   return (
     <div className={styles.layout}>
       <ThemeList />
+      <Languages />
       {children}
 
       <GithubCorner

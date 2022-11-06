@@ -4,7 +4,7 @@ import { socketOnDispatch } from "../../socket";
 const initialState = {
   id: null,
   name: "",
-  figure: "aylak",
+  figure: "moony",
 };
 
 const userSlice = createSlice({

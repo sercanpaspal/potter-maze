@@ -17,11 +17,16 @@
   font-size: 12px;
 }
 
-.button:enabled:hover {
+.active, .active:hover {
+  background-color: var(--primary-800);
+  border-color: var(--primary-400);
+}
+
+.button:enabled:hover:not(.active) {
   background-color: var(--primary-300);
 }
 
-.button:enabled:active {
+.button:enabled:active:not(.active) {
   background-color: var(--primary-100);
 }
 
