@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { socketOnDispatch } from "../../socket";
 
 const initialState = {
   id: null,
@@ -21,7 +20,5 @@ const userSlice = createSlice({
 });
 
 export const { setUser, setUserId } = userSlice.actions;
-
-socketOnDispatch("id", setUserId);
 
 export default userSlice.reducer;

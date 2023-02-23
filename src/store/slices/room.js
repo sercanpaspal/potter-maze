@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { socketOnDispatch } from "../../socket";
 import { getRoomId } from "../../utils";
 
 const initialState = {
@@ -21,9 +20,5 @@ const roomSlice = createSlice({
 });
 
 export const { setRoomId, setRoomUsers } = roomSlice.actions;
-
-socketOnDispatch("roomCreated", setRoomId);
-
-socketOnDispatch("roomUserState", setRoomUsers);
 
 export default roomSlice.reducer;

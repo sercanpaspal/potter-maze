@@ -1,3 +1,7 @@
+import {setGameState, setGameWinner} from "../store/slices/game";
+import {setRoomId, setRoomUsers} from "../store/slices/room";
+import {setUserId} from "../store/slices/user";
+
 export const Scenes = {
   MENU: "MENU",
   CREATE_ROOM: "CREATE_ROOM",
@@ -9,6 +13,21 @@ export const Scenes = {
   GAME: "GAME",
   GAME_END: "GAME_END",
 };
+
+export const SceneEvents = [
+  { event: "roomNotExists", scene: Scenes.NOT_EXISTS_ROOM },
+  { event: "roomKicked", scene: Scenes.KICKED_ROOM },
+  { event: "roomFull", scene: Scenes.FULL_ROOM },
+  { event: "roomStarted", scene: Scenes.GAME }
+]
+
+export const ActionEvents = [
+  { event: "id", action: setUserId },
+  { event: "gameState", action: setGameState },
+  { event: "gameWinner", action: setGameWinner },
+  { event: "roomCreated", action: setRoomId },
+  { event: "roomUserState", action: setRoomUsers }
+]
 
 export const Themes = {
   GRYFFINDOR: {

@@ -1,10 +1,11 @@
-import { takeLatest, select, put } from "redux-saga/effects";
+import { takeLatest, select, put, spawn } from "redux-saga/effects";
 import { Scenes } from "../../constants/enums";
 import socket from "../../socket";
 import { getRoom, getUser } from "../selectors";
 import { setGameWinner } from "../slices/game";
 import { setScene } from "../slices/scene";
 import { setTheme } from "../slices/theme";
+import socketSpawn from "./socketSpawn";
 
 function* watchSceneChanges({ payload }) {
   const room = yield select(getRoom);
@@ -38,6 +39,8 @@ function* saga() {
   yield takeLatest(setScene.toString(), watchSceneChanges);
   yield takeLatest(setGameWinner.toString(), watchGameWinner);
   yield takeLatest(setTheme.toString(), watchThemeChanges);
+
+  yield spawn(socketSpawn);
 }
 
 export default saga;

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { socketOnDispatch } from "../../socket";
 
 const initialState = {
   board: [],
@@ -26,9 +25,5 @@ const gameSlice = createSlice({
 });
 
 export const { setGameState, setGameWinner } = gameSlice.actions;
-
-socketOnDispatch("gameState", setGameState);
-
-socketOnDispatch("gameWinner", setGameWinner);
 
 export default gameSlice.reducer;
