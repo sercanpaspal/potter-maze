@@ -16,5 +16,11 @@
   "wormtail": "kılkuyruk",
   "padfoot": "patiayak",
   "moony": "aylak",
-  "prongs": "çatalak"
+  "prongs": "çatalak",
+  "you kicked from room": "odadan atıldın",
+  "room is full": "oda dolu",
+  "join": "katıl",
+  "join the room": "odaya katıl",
+  "room not exists": "oda mevcut değil",
+  "waiting room": "bekleme odası"
 }

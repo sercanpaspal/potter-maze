@@ -14,13 +14,6 @@ export const Scenes = {
   GAME_END: "GAME_END",
 };
 
-export const SceneEvents = [
-  { event: "roomNotExists", scene: Scenes.NOT_EXISTS_ROOM },
-  { event: "roomKicked", scene: Scenes.KICKED_ROOM },
-  { event: "roomFull", scene: Scenes.FULL_ROOM },
-  { event: "roomStarted", scene: Scenes.GAME }
-]
-
 export const ActionEvents = [
   { event: "id", action: setUserId },
   { event: "gameState", action: setGameState },

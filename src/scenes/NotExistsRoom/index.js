@@ -1,12 +1,11 @@
 import ButtonReturnMenu from "../../components/ButtonReturnMenu";
-const KickedRoomScreen = () => {
-  return (
-    <div>
-      <h1>Böyle bir oda yok</h1>
+import {withTranslate} from "../../hocs/withTranslate";
 
-      <ButtonReturnMenu />
-    </div>
-  );
-};
+const NotExistsRoom = ({ t }) => (
+  <div>
+    <h1>{t('room not exists')}</h1>
+    <ButtonReturnMenu />
+  </div>
+)
 
-export default KickedRoomScreen;
+export default withTranslate(NotExistsRoom);

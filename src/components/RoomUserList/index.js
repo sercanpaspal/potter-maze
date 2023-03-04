@@ -28,7 +28,7 @@ const RoomUserList = ({ users, roomId, host = false }) => {
                 {roomId !== user.id && (
                   <Button
                     small={true}
-                    onClick={() => socket.emit("roomKick", roomId, user.id)}
+                    onClick={() => socket.emit("roomKick", user.id)}
                     style={{ margin: 0 }}
                   >
                     kick

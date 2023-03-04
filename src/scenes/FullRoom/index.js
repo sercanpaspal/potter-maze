@@ -1,12 +1,11 @@
 import ButtonReturnMenu from "../../components/ButtonReturnMenu";
-const FullRoomScreen = () => {
-  return (
-    <div>
-      <h1>Oda dolu</h1>
+import {withTranslate} from "../../hocs/withTranslate";
 
-      <ButtonReturnMenu />
-    </div>
-  );
-};
+const FullRoomScreen = ({t}) => (
+  <div>
+    <h1>{t('room is full')}</h1>
+    <ButtonReturnMenu />
+  </div>
+);
 
-export default FullRoomScreen;
+export default withTranslate(FullRoomScreen);
