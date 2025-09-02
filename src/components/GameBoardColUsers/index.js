@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import {withTranslate} from "../../hocs/withTranslate";
+import { withTranslation } from 'react-i18next';
 
 const GameBoardColUsers = ({ t, users = [] }) => users.length > 0 && (
   <ul className={styles.users}>
@@ -11,4 +11,4 @@ const GameBoardColUsers = ({ t, users = [] }) => users.length > 0 && (
   </ul>
 );
 
-export default withTranslate(GameBoardColUsers);
+export default withTranslation()(GameBoardColUsers);

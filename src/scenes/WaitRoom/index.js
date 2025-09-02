@@ -1,14 +1,12 @@
 import RoomUserList from "../../components/RoomUserList";
-import {withTranslate} from "../../hocs/withTranslate";
 
-const WaitRoomScene = ({ roomId, t }) => {
+const WaitRoomScene = ({ roomId }) => {
   return (
     <div>
-      <h1>{t('waiting room')}</h1>
+      <h1>bekleme odası</h1>
       <RoomUserList roomId={roomId} />
     </div>
   );
 };
 
-
-export default withTranslate(WaitRoomScene);
+export default WaitRoomScene;
