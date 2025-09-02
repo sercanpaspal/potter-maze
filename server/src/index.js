@@ -130,6 +130,6 @@ io.on("connection", (socket) => {
   socket.on("disconnect", disconnect);
 });
 
-console.log("Server started!");
+console.log("Server started on ", process.env.PORT || 80, "port");
 
 httpServer.listen(process.env.PORT || 80);
